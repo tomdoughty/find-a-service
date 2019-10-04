@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% from 'care-card/macro.njk' import careCard %}
+
+{% block title %}service{% endblock %}
+{% block body %}
+	<h1>Find a service</h1>
+	<ul class="nhsuk-list">
+		<li><a href='/find-a-service/pharmacy'>Find a pharmacy</a></li>
+		<li><a href='/find-a-service/gp'>Find a GP </a></li>
+		<li><a href='/find-a-service/dentist'>Find a dentist</a></li>
+		<li><a href='/find-a-service/hospital'>Find a hospital</a></li>
+	</ul>
+	{{ careCard({
+		"type": "non-urgent",
+		"heading": "If you need help now, but it's not an emergency:",
+		"HTML": "
+		<ul>
+			<li>Find urgent care services</li>
+			<li>Go to 111.nhs.uk or call 111</li>
+		</ul>"
+	}) }}
+	{{ careCard({
+		"type": "urgent",
+		"heading": "If you think it's an emergency:",
+		"HTML": "
+		<ul>
+			<li>Find your nearest A&amp;E</li>
+			<li>Call 999</li>
+		</ul>
+		"
+	}) }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{service.display}}{% endblock %}
+{% block body %}
+	<h1>{{service.display}}s nearest {{ location }}</h1>
+	<ul class="nhsuk-list">
+		{% for service in services %}
+			<li>
+				<hr />
+				<h2>{% if service.OrganisationName %} {{ service.OrganisationName }}{% endif %}</h2>
+				<p>
+					{% if service.Address1 %} {{ service.Address1 }}, {% endif %}
+					{% if service.Address2 %} {{ service.Address2 }}, {% endif %}
+					{% if service.Address3 %} {{ service.Address3 }}, {% endif %}
+					{% if service.City %} {{ service.City }}, {% endif %}
+					{% if service.County %} {{ service.County }}, {% endif %}
+					{% if service.Postcode %} {{ service.Postcode }}{% endif %}
+				</p>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
