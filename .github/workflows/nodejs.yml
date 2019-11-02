@@ -17,9 +17,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    # - name: ESLint Action
-    #   uses: hallee/eslint-action@1.0.1
+    - name: Run ESLint
+      uses: stefanoeb/eslint-action@1.0.0
     - name: Run Jest
       uses: stefanoeb/jest-action@1.0.0
-      with: 
-        args: index.js src/**.js
