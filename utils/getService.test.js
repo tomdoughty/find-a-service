@@ -16,13 +16,5 @@ describe('getService util', () => {
           display: 'Dentist',
         });
     });
-    it('if the key exists in lowercase', () => {
-      expect(getService({ params: { service: 'dentist' } }))
-        .toEqual({
-          key: 'GP',
-          code: 'DEN',
-          display: 'Dentist',
-        });
-    });
   });
 });
