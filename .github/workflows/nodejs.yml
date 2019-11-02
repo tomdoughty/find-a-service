@@ -22,4 +22,4 @@ jobs:
         npm run lint
         npm test
       env:
-        CI: true
+        DEVELOPMENT: true
