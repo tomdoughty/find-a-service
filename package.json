@@ -4,7 +4,7 @@
   "description": "find a service proof of concept",
   "main": "app.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint -c .eslintrc.js \"**/*.js\"",
+    "lint": "./node_modules/.bin/eslint **/*.js,
     "start": "nodemon -e js,html",
     "test": "jest"
   },
