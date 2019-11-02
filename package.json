@@ -4,6 +4,7 @@
   "description": "find a service proof of concept",
   "main": "app.js",
   "scripts": {
+    "lint": "eslint -c .eslintrc.js \"**/*.js\"",
     "start": "nodemon -e js,html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,9 @@
     "postcodesio-client": "^0.3.4"
   },
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "nodemon": "^1.19.3"
   }
 }

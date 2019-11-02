@@ -12,12 +12,12 @@ app.get('/', (_, res) => res.redirect('/find-a-service'));
 app.get('*', (_, res) => res.render('error.html'));
 
 nunjucks.configure([
-    './views',
-    'node_modules/nhsuk-frontend/packages/components',
+  './views',
+  'node_modules/nhsuk-frontend/packages/components',
 ], {
-    autoescape: true,
-    express: app,
-    watch: true
+  autoescape: true,
+  express: app,
+  watch: true,
 });
 
 app.listen(3000);

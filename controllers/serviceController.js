@@ -3,36 +3,32 @@ const getServices = require('../utils/getServices');
 
 const SERVICE_TYPES = require('../constants');
 
-exports.index = (_, res) => {
-	// Render homepage
-    return res.render('index.html')
-};
+const getService = (req) => SERVICE_TYPES[req.params.service.toUpperCase()];
 
-exports.search = ({ params }, res) => {
-	// Get service type constant
-	const service = SERVICE_TYPES[params.service.toUpperCase()];
-	// Render search page
-	return res.render('search.html', { service });
-};
+exports.index = (_, res) => res.render('index.html');
 
-exports.results = async({ params, body: { latitude, longitude, location } }, res) => {
-	const service = SERVICE_TYPES[params.service.toUpperCase()];
+exports.search = (req, res) => res.render('search.html', {
+  service: getService(req),
+});
 
-	try {
-		if (!latitude || !longitude) {
-			({ latitude, longitude } = await getLatLong(location));
-		}
-		return res.render('results.html', {
-			service,
-			services: await getServices(latitude, longitude, service.code),
-			location: location ? `"${location.toUpperCase()}"` : 'your location'
-		});
+exports.results = async (req, res) => {
+  const service = getService(req);
+  const { location } = req.body;
+  let { latitude, longitude } = req.body;
 
-	} catch(err) {
-		console.log(err)
-		return res.render('search.html', { 
-			errorMessage: 'Please enter a valid postcode',
-			service
-		})
-	}
+  try {
+    if (location) {
+      ({ latitude, longitude } = await getLatLong(location));
+    }
+    return res.render('results.html', {
+      location,
+      service,
+      services: await getServices(latitude, longitude, service.code),
+    });
+  } catch (error) {
+    return res.render('search.html', {
+      errorMessage: 'Please enter a valid postcode',
+      service,
+    });
+  }
 };
