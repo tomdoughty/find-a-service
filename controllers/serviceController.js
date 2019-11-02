@@ -1,9 +1,6 @@
 const getLatLong = require('../utils/getLatLong');
 const getServices = require('../utils/getServices');
-
-const SERVICE_TYPES = require('../constants');
-
-const getService = (req) => SERVICE_TYPES[req.params.service.toUpperCase()];
+const getService = require('../utils/getService');
 
 exports.index = (_, res) => res.render('index.html');
 
