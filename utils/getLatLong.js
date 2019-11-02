@@ -5,7 +5,8 @@ const postcodes = new PostcodesIO();
 module.exports = async (postcode) => {
   try {
     return await postcodes.lookup(postcode);
-  } catch (error) {
+  } 
+  catch (error) {
     return error;
   }
 };
