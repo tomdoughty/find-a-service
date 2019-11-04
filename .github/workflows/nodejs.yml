@@ -16,4 +16,4 @@ jobs:
       run: npm run lint
     - name: Run Jest
       run: npm run test
-    - uses: ./.github/actions/backstop
+    - uses: .github/actions/backstop
