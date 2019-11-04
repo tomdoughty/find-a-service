@@ -1,7 +1,10 @@
-FROM node:10.14.1-alpine
+#!/bin/sh
 
-LABEL "com.github.actions.name"="Run Backstop"
-LABEL "com.github.actions.description"="Runs Backstop tests in a Docker container"
+# Exit if any subcommand fails
+set -e 
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+setup="NODE_ENV=development npm install &&"
+
+echo "## Running Jest"
+args=$@
+sh -c "$setup ./node_modules/.bin/jest $args"
