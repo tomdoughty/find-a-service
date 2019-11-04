@@ -1,4 +1,5 @@
 #!/bin/sh
+chmod + x /docker-entrypoint.sh
 
 # Exit if any subcommand fails
 set -e 
