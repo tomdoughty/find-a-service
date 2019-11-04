@@ -20,5 +20,4 @@ nunjucks.configure([
   watch: true,
 });
 
-console.log('http://localhost:3000');
 app.listen(3000);
