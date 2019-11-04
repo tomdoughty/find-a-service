@@ -16,6 +16,6 @@ else
 fi
 
 
-echo "## Running Jest"
+echo "## Running Action"
 args=$@
-sh -c "$setup ./node_modules/.bin/jest $args"
+sh -c "$setup npm run action"
