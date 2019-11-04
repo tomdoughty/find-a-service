@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/eslint './**/*.js'",
     "start": "nodemon -e js,html",
     "test": "jest",
-    "action": "(npm run start) & npm run lint"
+    "action": "npm run start"
   },
   "author": "Tom Doughty",
   "license": "ISC",
