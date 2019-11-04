@@ -18,4 +18,4 @@ fi
 
 echo "## Running Action"
 args=$@
-sh -c "$setup npm run action"
+sh -c "$setup ((npm run start) & npm run lint)"

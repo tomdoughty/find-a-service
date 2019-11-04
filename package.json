@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint './**/*.js'",
     "start": "nodemon -e js,html",
-    "test": "jest",
-    "action": "npm run start"
+    "test": "jest"
   },
   "author": "Tom Doughty",
   "license": "ISC",
